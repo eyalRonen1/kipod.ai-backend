@@ -4,16 +4,8 @@
     {
       "name": "default",
       "runtime": "nodejs18.x",
+      "path": "/",          
       "entrypoint": "index.js"
-    }
-  ],
-  "routes": [
-    {
-      "path": "/*",
-      "target": {
-        "kind": "Compute",
-        "name": "default"
-      }
     }
   ]
 }
