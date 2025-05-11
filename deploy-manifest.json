@@ -1,14 +1,12 @@
 {
   "version": 1,
-  "resources": {
-    "compute": {
-      "default": {
-        "runtime": "nodejs18.x",
-        "entrypoint": "index.js",
-        "external": false
-      }
+  "compute": [
+    {
+      "name": "default",
+      "runtime": "nodejs18.x",
+      "entrypoint": "index.js"
     }
-  },
+  ],
   "routes": [
     {
       "path": "/*",
