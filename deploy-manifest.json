@@ -3,15 +3,18 @@
   "routes": [
     {
       "path": "/*",
-      "target": { "kind": "Compute", "name": "default" }
+      "target": { "kind": "Compute", "src": "default" }
     }
   ],
-  "framework": { "type": "custom" },
-  "compute": [
+  "computeResources": [
     {
       "name": "default",
-      "runtime": "nodejs18.x",
-      "entrypoint": "index.js"
+      "entrypoint": "index.js",
+      "runtime": "nodejs18.x"
     }
-  ]
+  ],
+  "framework": {
+    "name": "custom",
+    "version": "1.0.0"
+  }
 }
