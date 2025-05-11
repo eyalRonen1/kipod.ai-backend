@@ -1,18 +1,23 @@
-// bin/postbuild.js
-// Builds the .amplify-hosting bundle for Amplify Hosting Compute
-const fs = require("fs-extra");
+/* bin/postbuild.js */
+const fs   = require("fs-extra");
 const path = require("path");
 
 const OUT = ".amplify-hosting/compute/default";
 
-fs.removeSync(".amplify-hosting").catch(() => {});  // clean previous bundle
+// 1. clean previous bundle
+try {
+  fs.removeSync(".amplify-hosting");
+} catch (_) {
+  /* ignore – folder may not exist */
+}
+
 fs.ensureDirSync(OUT);
 
-// 1 – runtime code produced by `medusa build`
+// 2. runtime code
 fs.copySync(".medusa/server", OUT, { recursive: true });
 
-// 2 – dependencies
+// 3. dependencies
 fs.copySync("node_modules", path.join(OUT, "node_modules"), { recursive: true });
 
-// 3 – deployment manifest
+// 4. deployment manifest
 fs.copySync("deploy-manifest.json", ".amplify-hosting/deploy-manifest.json");
