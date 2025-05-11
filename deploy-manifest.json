@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "frontend": {
+    "phase": "deploy",
+    "serverRouting": true,
+    "routes": [
+      {
+        "path": "/*",
+        "target": { "kind": "Compute", "src": "default" }
+      }
+    ],
+    "computeResources": [
+      {
+        "name": "default",
+        "runtime": "nodejs18.x",
+        "entrypoint": "index.js"
+      }
+    ]
+  }
+}
