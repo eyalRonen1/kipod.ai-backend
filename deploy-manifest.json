@@ -1,5 +1,12 @@
 {
   "version": 1,
+  "routes": [
+    {
+      "path": "/*",
+      "target": { "kind": "Compute", "name": "default" }
+    }
+  ],
+  "framework": { "type": "custom" },
   "compute": [
     {
       "name": "default",
