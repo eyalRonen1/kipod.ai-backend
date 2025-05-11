@@ -21,3 +21,9 @@ fs.copySync("node_modules", path.join(OUT, "node_modules"), { recursive: true })
 
 // 4. deployment manifest
 fs.copySync("deploy-manifest.json", ".amplify-hosting/deploy-manifest.json");
+
+// Log the manifest content to verify what's being copied
+console.log(
+  "Manifest content:",
+  fs.readFileSync(".amplify-hosting/deploy-manifest.json", "utf8")
+);
